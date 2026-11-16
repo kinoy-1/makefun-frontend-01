@@ -1,14 +1,15 @@
 // Bountyline — makefun-frontend-01 entry program (Node 22, standard library only).
 //
-// The frontend lives in app/ beside this file: plain static files (index.html,
-// one ES module, one stylesheet), no build step, reading make.fun's public API.
-// This program hands the entry in: it copies app/ and screenshots/ into the
-// output directory and writes dossier.json with the kit's vendored library.
-// The grader runs it twice and both runs must write identical bytes, so it
-// does nothing time-dependent and no network: pure file copying plus the
-// deterministic dossier builder. vendor/makefun-frontend.ts stays exactly as
-// the kit shipped it — the scorer rebuilds the dossier with its own copy and
-// compares the two byte for byte.
+// The frontend lives in app/ beside this file: plain static files
+// (index.html, one ES module, one stylesheet), no build step, reading
+// make.fun's public API. This program hands the entry in: it copies app/
+// and screenshots/ into the output directory and writes dossier.json with
+// the kit's vendored library. The grader runs it twice and both runs must
+// write identical bytes, so it does nothing time-dependent and no network:
+// pure file copying plus the deterministic dossier builder.
+// vendor/makefun-frontend.ts stays exactly as the kit shipped it — the
+// scorer rebuilds the dossier with its own copy and compares the two
+// byte for byte.
 //
 // Outside the grader, MAKEFUN_OUTPUT_DIR stands in for /output:
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts

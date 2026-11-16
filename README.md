@@ -8,7 +8,7 @@ Bountyline is a lean, fast frontend for [make.fun](https://make.fun/): the live 
 
 ## What it shows
 
-- **Board** (`#/`) — every bounty with its reward, live pot, entry fee, time left and entries. Search, filter (All / Open / Closing soon / Closed) and sort (closing soon, biggest pot, biggest reward, most entries). Open bounties first; the countdown ticks live.
+- **Board** (`#/`) — every bounty with its reward, live pot, entry fee, time left and entries. Search (press `/` anywhere to focus it), filter (All / Open / Closing soon / Closed) and sort (closing soon, biggest pot, biggest reward, most entries). Open bounties first; the countdown ticks live.
 - **Bounty page** (`#/bounty/<slug>`) — summary, rules and description, the rewards table with the live pot and fee shares, dates and status. A bounty past its deadline reads as ended even if its status still says open.
 - **Leaderboard** (`#/bounty/<slug>/leaderboard`) — the bounty's entries ranked by score with prize ranks, paginated 50 a page, handles linking to profiles.
 - **Profile** (`#/u/<handle>`) — an account's public profile: record (entered, placed, won, best place, prize money) and every entry with its score and placement.
@@ -33,7 +33,7 @@ mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 ## How it stays fast
 
 - **One small first load**: `index.html` + one stylesheet + one ES module, system fonts only — no webfonts, no framework.
-- **Cached API answers**: responses are cached in memory and `sessionStorage` and revalidated with `ETag` / `If-None-Match`; a view costs one request.
+- **Cached API answers**: responses are cached in memory and `sessionStorage` and revalidated with `ETag` / `If-None-Match`; a view costs one request. The footer counts requests made vs. served from cache, so the saving is visible.
 - **Paginated lists**: the leaderboard pages 50 at a time; the board filters and sorts client-side without refetching.
 - **In-place updates**: the live countdown rewrites text nodes only, never the whole page.
 
